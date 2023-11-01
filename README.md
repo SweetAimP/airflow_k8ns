@@ -6,17 +6,17 @@ Easy deployment for Airflow into Kubernetes using HELM as base (Dcoker Desktop f
     helm repo add apache-airflow https://airflow.apache.org
 
 # Creating the deployment using as base the apache/airflow Docker image
-    helm upgrade --install airflow apache-airflow/airflow --namespace airflow --create-namespace 
+    helm upgrade --install {releaseName} apache-airflow/airflow --namespace {namespace} --create-namespace 
   
-  * This command will create all the deploymente into the Kubernetes Cluster. If the namespace "airflow" doesn't exist it will be created.
+  * This command will create all the deploymente into the Kubernetes Cluster. If the namespace doesn't exist it will be created.
 
 # Creating the deployment using as base a personal Docker image
-    helm upgrade --install airflow apache-airflow/airflow \
+    helm upgrade --install {releaseName} apache-airflow/airflow \
     --set images.airflow.repository={dockerHubRepo/mageName}\
     --set images.airflow.tag={tag} \
-    --namespace airflow --create-namespace
+    --namespace {namespace} --create-namespace
     
-  * This command will create all the deploymente into the Kubernetes Cluster with the image used in the parameters. If the namespace "airflow" doesn't exist it will be created.
+  * This command will create all the deploymente into the Kubernetes Cluster with the image used in the parameters. If the namespace doesn't exist it will be created.
 
 # Updating the release environment using Values.yaml
 In case you want to update the release and change some values within the environment variables you can run the next command.
