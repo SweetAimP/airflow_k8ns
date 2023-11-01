@@ -1,4 +1,4 @@
-# airflow_k8ns
+# AIRFLOW - K8NS
 Easy deployment for Airflow into Kubernetes using HELM as base (Dcoker Desktop for testing).
 
 
