@@ -20,7 +20,7 @@ Easy deployment for Airflow into Kubernetes using HELM as base (Dcoker Desktop f
 
 # Updating the release environment using Values.yaml
 In case you want to update the release and change some values within the environment variables you can run the next command.
-  helm upgrade {releaseName} apache-airflow/airflow --debug -f ./config/values.yaml --namespace {namespace}
+  ```helm upgrade {releaseName} apache-airflow/airflow --debug -f ./config/values.yaml --namespace {namespace}```
 
   * The values.yaml file should looks like this simple example:
     
