@@ -1,0 +1,284 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: airflow
+      meta.helm.sh/release-namespace: airflow
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    labels:
+      app.kubernetes.io/component: primary
+      app.kubernetes.io/instance: airflow
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: postgresql
+      helm.sh/chart: postgresql-12.10.0
+    name: airflow-postgresql
+    namespace: airflow
+    resourceVersion: "782"
+    uid: 404f6466-6cb2-4404-bf4a-5db2da0d3376
+  spec:
+    clusterIP: 10.106.22.73
+    clusterIPs:
+    - 10.106.22.73
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: tcp-postgresql
+      port: 5432
+      protocol: TCP
+      targetPort: tcp-postgresql
+    selector:
+      app.kubernetes.io/component: primary
+      app.kubernetes.io/instance: airflow
+      app.kubernetes.io/name: postgresql
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: airflow
+      meta.helm.sh/release-namespace: airflow
+      service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    labels:
+      app.kubernetes.io/component: primary
+      app.kubernetes.io/instance: airflow
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: postgresql
+      helm.sh/chart: postgresql-12.10.0
+    name: airflow-postgresql-hl
+    namespace: airflow
+    resourceVersion: "765"
+    uid: 6be816c6-5d46-414b-84d2-e27c30939019
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: tcp-postgresql
+      port: 5432
+      protocol: TCP
+      targetPort: tcp-postgresql
+    publishNotReadyAddresses: true
+    selector:
+      app.kubernetes.io/component: primary
+      app.kubernetes.io/instance: airflow
+      app.kubernetes.io/name: postgresql
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: airflow
+      meta.helm.sh/release-namespace: airflow
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      chart: airflow-1.11.0
+      component: redis
+      heritage: Helm
+      release: airflow
+      tier: airflow
+    name: airflow-redis
+    namespace: airflow
+    resourceVersion: "778"
+    uid: 270ec30e-f1ba-43e4-9ee0-2cb80bea89e1
+  spec:
+    clusterIP: 10.102.61.8
+    clusterIPs:
+    - 10.102.61.8
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: redis-db
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    selector:
+      component: redis
+      release: airflow
+      tier: airflow
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: airflow
+      meta.helm.sh/release-namespace: airflow
+      prometheus.io/port: "9102"
+      prometheus.io/scrape: "true"
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      chart: airflow-1.11.0
+      component: statsd
+      heritage: Helm
+      release: airflow
+      tier: airflow
+    name: airflow-statsd
+    namespace: airflow
+    resourceVersion: "786"
+    uid: 87699217-7e0e-435e-abdd-ef4239da33ec
+  spec:
+    clusterIP: 10.97.219.56
+    clusterIPs:
+    - 10.97.219.56
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: statsd-ingest
+      port: 9125
+      protocol: UDP
+      targetPort: 9125
+    - name: statsd-scrape
+      port: 9102
+      protocol: TCP
+      targetPort: 9102
+    selector:
+      component: statsd
+      release: airflow
+      tier: airflow
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: airflow
+      meta.helm.sh/release-namespace: airflow
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      chart: airflow-1.11.0
+      component: triggerer
+      heritage: Helm
+      release: airflow
+      tier: airflow
+    name: airflow-triggerer
+    namespace: airflow
+    resourceVersion: "766"
+    uid: 3debe134-4e55-409a-98bc-60b0c0e6cf20
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: triggerer-logs
+      port: 8794
+      protocol: TCP
+      targetPort: 8794
+    selector:
+      component: triggerer
+      release: airflow
+      tier: airflow
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: airflow
+      meta.helm.sh/release-namespace: airflow
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      chart: airflow-1.11.0
+      component: webserver
+      heritage: Helm
+      release: airflow
+      tier: airflow
+    name: airflow-webserver
+    namespace: airflow
+    resourceVersion: "770"
+    uid: ade4e7c1-0132-46cd-b0c4-2ade0910b22f
+  spec:
+    clusterIP: 10.107.142.201
+    clusterIPs:
+    - 10.107.142.201
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: airflow-ui
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      component: webserver
+      release: airflow
+      tier: airflow
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: airflow
+      meta.helm.sh/release-namespace: airflow
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      chart: airflow-1.11.0
+      component: worker
+      heritage: Helm
+      release: airflow
+      tier: airflow
+    name: airflow-worker
+    namespace: airflow
+    resourceVersion: "764"
+    uid: 73376c72-e00d-4e3a-b4f8-8e0b1a7691ea
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: worker-logs
+      port: 8793
+      protocol: TCP
+      targetPort: 8793
+    selector:
+      component: worker
+      release: airflow
+      tier: airflow
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""

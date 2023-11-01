@@ -1,0 +1,39 @@
+Pulling helm repo to deploy airflow in k8ns
+    helm repo add apache-airflow https://airflow.apache.org
+    helm upgrade --install airflow apache-airflow/airflow --namespace airflow --create-namespace 
+    # airflow is the release name used during all the operations
+
+
+Redirect de trafic to 8080 then the webserver will be able to listen
+    kubectl port-forward svc/airflow-webserver 8080:8080 --namespace airflow
+
+
+Whenever any personalized action is required
+    docker build --pull --tag "sweetaimp/docker-python:latest" . -f  ./DockerFile
+
+Push image to docker hub repo
+    docker push sweetaimp/docker-python:latest
+
+Update current release
+    #update existing release
+    helm upgrade airflow apache-airflow/airflow \
+    --set images.airflow.repository=sweetaimp/docker-python \
+    --set images.airflow.tag=latest \
+    --namespace airflow
+
+    #create if not exist
+    helm upgrade --install airflow apache-airflow/airflow \
+    --set images.airflow.repository=sweetaimp/docker-python \
+    --set images.airflow.tag=latest \
+    --namespace airflow
+
+    #update ussing values.yamls
+    helm upgrade airflow apache-airflow/airflow --debug -f ./config/values.yaml --namespace airflow
+
+get yamls for better understanding of the current dployment
+    sh ./get_yamls.sh
+    
+helm delete airflow --namespace airflow
+helm repo remove apache-airflow
+
+

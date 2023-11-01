@@ -1,0 +1,141 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: docker.io/hostpath
+      volume.kubernetes.io/storage-provisioner: docker.io/hostpath
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    labels:
+      app.kubernetes.io/component: primary
+      app.kubernetes.io/instance: airflow
+      app.kubernetes.io/name: postgresql
+    name: data-airflow-postgresql-0
+    namespace: airflow
+    resourceVersion: "882"
+    uid: b650de9e-6cc9-4d7f-931d-89c571c812dd
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 8Gi
+    storageClassName: hostpath
+    volumeMode: Filesystem
+    volumeName: pvc-b650de9e-6cc9-4d7f-931d-89c571c812dd
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 8Gi
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: docker.io/hostpath
+      volume.kubernetes.io/storage-provisioner: docker.io/hostpath
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    labels:
+      component: triggerer
+      release: airflow
+      tier: airflow
+    name: logs-airflow-triggerer-0
+    namespace: airflow
+    resourceVersion: "893"
+    uid: 655614e8-9c04-476f-8ac2-edb129882ec8
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Gi
+    storageClassName: hostpath
+    volumeMode: Filesystem
+    volumeName: pvc-655614e8-9c04-476f-8ac2-edb129882ec8
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 100Gi
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: docker.io/hostpath
+      volume.kubernetes.io/storage-provisioner: docker.io/hostpath
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    labels:
+      component: worker
+      release: airflow
+      tier: airflow
+    name: logs-airflow-worker-0
+    namespace: airflow
+    resourceVersion: "898"
+    uid: fedc82c3-7e3f-489b-a19b-3434158fa956
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Gi
+    storageClassName: hostpath
+    volumeMode: Filesystem
+    volumeName: pvc-fedc82c3-7e3f-489b-a19b-3434158fa956
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 100Gi
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: docker.io/hostpath
+      volume.kubernetes.io/storage-provisioner: docker.io/hostpath
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    labels:
+      component: redis
+      release: airflow
+      tier: airflow
+    name: redis-db-airflow-redis-0
+    namespace: airflow
+    resourceVersion: "886"
+    uid: 090db01c-f3ce-45a5-8e74-3c1832b93fa6
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+    storageClassName: hostpath
+    volumeMode: Filesystem
+    volumeName: pvc-090db01c-f3ce-45a5-8e74-3c1832b93fa6
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 1Gi
+    phase: Bound
+kind: List
+metadata:
+  resourceVersion: ""

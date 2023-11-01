@@ -1,0 +1,133 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      docker.io/hostpath: /var/lib/k8s-pvs/redis-db-airflow-redis-0/pvc-090db01c-f3ce-45a5-8e74-3c1832b93fa6
+      pv.kubernetes.io/provisioned-by: docker.io/hostpath
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-090db01c-f3ce-45a5-8e74-3c1832b93fa6
+    resourceVersion: "883"
+    uid: 38631e07-2a52-4473-a8cb-04ce77d1baea
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 1Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: redis-db-airflow-redis-0
+      namespace: airflow
+      resourceVersion: "848"
+      uid: 090db01c-f3ce-45a5-8e74-3c1832b93fa6
+    hostPath:
+      path: /var/lib/k8s-pvs/redis-db-airflow-redis-0/pvc-090db01c-f3ce-45a5-8e74-3c1832b93fa6
+      type: ""
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: hostpath
+    volumeMode: Filesystem
+  status:
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      docker.io/hostpath: /var/lib/k8s-pvs/logs-airflow-triggerer-0/pvc-655614e8-9c04-476f-8ac2-edb129882ec8
+      pv.kubernetes.io/provisioned-by: docker.io/hostpath
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-655614e8-9c04-476f-8ac2-edb129882ec8
+    resourceVersion: "887"
+    uid: 41443f6e-89d8-4840-8393-c2f12711d87b
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 100Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: logs-airflow-triggerer-0
+      namespace: airflow
+      resourceVersion: "851"
+      uid: 655614e8-9c04-476f-8ac2-edb129882ec8
+    hostPath:
+      path: /var/lib/k8s-pvs/logs-airflow-triggerer-0/pvc-655614e8-9c04-476f-8ac2-edb129882ec8
+      type: ""
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: hostpath
+    volumeMode: Filesystem
+  status:
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      docker.io/hostpath: /var/lib/k8s-pvs/data-airflow-postgresql-0/pvc-b650de9e-6cc9-4d7f-931d-89c571c812dd
+      pv.kubernetes.io/provisioned-by: docker.io/hostpath
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-b650de9e-6cc9-4d7f-931d-89c571c812dd
+    resourceVersion: "873"
+    uid: e3e504a3-8ead-4f8d-88f4-d9a3f2a7bea2
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 8Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: data-airflow-postgresql-0
+      namespace: airflow
+      resourceVersion: "844"
+      uid: b650de9e-6cc9-4d7f-931d-89c571c812dd
+    hostPath:
+      path: /var/lib/k8s-pvs/data-airflow-postgresql-0/pvc-b650de9e-6cc9-4d7f-931d-89c571c812dd
+      type: ""
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: hostpath
+    volumeMode: Filesystem
+  status:
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      docker.io/hostpath: /var/lib/k8s-pvs/logs-airflow-worker-0/pvc-fedc82c3-7e3f-489b-a19b-3434158fa956
+      pv.kubernetes.io/provisioned-by: docker.io/hostpath
+    creationTimestamp: "2023-11-01T09:42:11Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-fedc82c3-7e3f-489b-a19b-3434158fa956
+    resourceVersion: "895"
+    uid: 20574c85-069e-45bf-b41d-7263a1599ce1
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 100Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: logs-airflow-worker-0
+      namespace: airflow
+      resourceVersion: "850"
+      uid: fedc82c3-7e3f-489b-a19b-3434158fa956
+    hostPath:
+      path: /var/lib/k8s-pvs/logs-airflow-worker-0/pvc-fedc82c3-7e3f-489b-a19b-3434158fa956
+      type: ""
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: hostpath
+    volumeMode: Filesystem
+  status:
+    phase: Bound
+kind: List
+metadata:
+  resourceVersion: ""

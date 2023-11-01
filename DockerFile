@@ -1,0 +1,4 @@
+FROM apache/airflow
+COPY ./dags/ /opt/airflow/dags/
+COPY ./config/ /opt/airflow/config/
+ENV AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT='{"conn_type": "google_cloud_platform", "extra": {"key_path": "/opt/airflow/config/bigqueryariflow-efa831c1bbf9.json", "scope": "https://www.googleapis.com/auth/cloud-platform", "project": "bigqueryariflow", "num_retries": 5}}'
