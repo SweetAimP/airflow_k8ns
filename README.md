@@ -47,7 +47,7 @@ In case you want to take a look deeper in your current realese yaml files, you c
   kubectl get statefulset -n $NAMESPACE -o yaml > statefulsets.yaml
   ```
 
-# Cleaning the workspace once all your test has finished
+# Cleaning the workspace once all your testing has finished
 * Removing the namespace, this will delete all your resources within this namespace.
   ```helm delete airflow --namespace {namespace}```
 * Removing the helm repo.
